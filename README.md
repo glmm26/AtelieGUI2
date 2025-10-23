@@ -13,97 +13,119 @@ Atualmente, o projeto encontra-se **em desenvolvimento**, buscando oferecer uma 
 
 ---
 
+# 🧵 Ateliê Online
+
+Um sistema online voltado para ajustes, consertos, customização e estamparia. A plataforma permite que clientes solicitem serviços diretamente pela internet de forma simples e intuitiva.
+
+## 📖 Sobre o projeto
+
+O Ateliê Online busca modernizar o atendimento de ateliês, oferecendo:
+
+- Solicitação de ajustes e consertos de roupas online
+- Envio de peças para customização
+- Serviços de estamparia sob demanda
+- Controle de pedidos, orçamentos e status dos serviços
+
+O projeto está em desenvolvimento.
+
+---
+
 ## 🚀 Funcionalidades
-- Cadastro e autenticação de clientes.  
-- Cadastro e gerenciamento de serviços oferecidos.  
-- Sistema de solicitação de serviços online.  
-- Acompanhamento do status do pedido.  
-- Integração com banco de dados para controle dos pedidos.  
-- Interface amigável e responsiva.  
+
+- Cadastro e autenticação de clientes
+- Cadastro e gerenciamento de serviços
+- Sistema de solicitação de serviços online
+- Acompanhamento do status do pedido
+- Integração com banco de dados
+- Interface responsiva
 
 ---
 
-## 🛠 Tecnologias Utilizadas
-O projeto foi desenvolvido utilizando as seguintes tecnologias:
+## 🛠 Tecnologias
 
-- **Frontend:**  
-  - HTML5  
-  - CSS3  
-  - JavaScript  
-
-- **Backend:**  
-  - Python (Flask)  
-
-- **Banco de Dados:**  
-  - PostgreSQL  
+- Frontend: HTML5, CSS3, JavaScript
+- Backend: Python (Flask)
+- Banco de dados: PostgreSQL
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do projeto
 
 atelie-online/
-│
-├── static/ # Arquivos estáticos (CSS, JS, imagens)
-├── templates/ # Templates HTML
-├── app.py # Arquivo principal da aplicação Flask
-├── requirements.txt # Dependências do projeto
-└── README.md # Documentação do projeto
-
+├── atelie_online/        # código fonte da aplicação
+├── static/               # arquivos estáticos (CSS, JS, imagens)
+├── templates/            # templates HTML
+├── app.py                # ponto de entrada
+├── requirements.txt      # dependências
+└── README.md             # documentação
 
 ---
 
-## ⚙️ Como Executar o Projeto Localmente
+## Como executar localmente
 
-Siga os passos abaixo para rodar o projeto na sua máquina:
+1. Clone este repositório
 
-### 1. Clone o repositório
-````bash
-git clone https://github.com/seu-usuario/atelie-online.git
-````
-## 2. 📂 Pasta do Projeto
-cd atelie-online
+```bash
+git clone https://github.com/glmm26/AtelieGUI2.git
+```
 
-## 3. 💻 Crie um ambiente Virtual
+2. Entre na pasta do projeto
+
+```bash
+cd Atelie-Online-main
+```
+
+3. Crie e ative um ambiente virtual
+
+Windows (PowerShell):
+
+```powershell
 python -m venv venv
+venv\Scripts\Activate.ps1
+```
 
-## 4. ⚡ Ative o ambiente virtual
+Linux / macOS:
 
-- Windows:
-
-venv\Scripts\activate
-
-
-- Linux/Mac:
-
+```bash
+python3 -m venv venv
 source venv/bin/activate
+```
 
-## 5. ⬇️ Instale as dependências
+4. Instale as dependências
+
+```bash
 pip install -r requirements.txt
+```
 
-## 6. ⚙️ Configure o banco de dados PostgreSQL
+5. Configure o banco de dados (PostgreSQL)
 
-- Crie um banco de dados no PostgreSQL:
+- Crie um banco de dados no PostgreSQL
+- Atualize as credenciais no `app.py` ou em um arquivo `.env`
 
-- Atualize as credenciais de conexão no arquivo app.py ou em um .env.
+6. Execute a aplicação
 
-## 7. 🚀 Execute a aplicação
+```bash
 flask run
+```
 
-## 📌 Status do Projeto
+---
 
-- **Em desenvolvimento** 🚧
-Algumas funcionalidades ainda estão sendo implementadas.
+## Status
 
-## 🤝 Contribuição
+- Em desenvolvimento 🚧
 
-# Se quiser contribuir com o projeto:
+---
 
-- . **Faça um fork do repositório.**
+## Contribuição
 
-- . **Crie uma branch com a sua feature (git checkout -b minha-feature).**
+1. Faça um fork deste repositório
+2. Crie uma branch para sua feature: `git checkout -b minha-feature`
+3. Faça commits descritivos: `git commit -m "Minha feature"`
+4. Envie para o repositório remoto: `git push origin minha-feature`
+5. Abra um Pull Request
 
-- . **Commit suas alterações (git commit -m 'Adicionei uma nova feature').**
+Obrigado por olhar o projeto! Se quiser, abra uma issue antes de implementar alterações maiores.
 
-- . **Envie para o repositório remoto (git push origin minha-feature).**
+---
 
-- . **Abra um Pull Request.**
+Projeto: AtelieGUI2 (Ateliê Online)
