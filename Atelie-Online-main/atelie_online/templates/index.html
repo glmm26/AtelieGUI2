@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ateliê Online</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script>
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            let current = 0;
+            function showSlide(idx) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === idx);
+                });
+            }
+            function nextSlide() {
+                current = (current + 1) % slides.length;
+                showSlide(current);
+            }
+            function prevSlide() {
+                current = (current - 1 + slides.length) % slides.length;
+                showSlide(current);
+            }
+            if (nextBtn && prevBtn) {
+                nextBtn.addEventListener('click', nextSlide);
+                prevBtn.addEventListener('click', prevSlide);
+            }
+            showSlide(current);
+            setInterval(nextSlide, 4000);
+        }, 100);
+    });
+    </script>
+    <header class="atelier-header">
+        <div class="header-content row-header">
+            <div class="logo-group" style="justify-content: flex-start; display: flex; align-items: center; gap: 12px; flex: 1; margin-left: 40px;">
+                <img src="https://img.icons8.com/color/96/paint-palette.png" alt="Logo Ateliê" class="atelier-logo" style="margin-left: 0; margin-right: 8px;">
+                <h1 style="margin-left: 0;">Ateliê Online</h1>
+            </div>
+            <nav class="atelier-nav">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Início</a></li>
+                    <li><a href="{{ url_for('servicos.projeto') }}">Serviços</a></li>
+                    <li><a href="{{ url_for('servicos.estamparia') }}">Estampas</a></li>
+                    <li><a href="{{ url_for('servicos.conserto') }}">Contato</a></li>
+                </ul>
+            </nav>
+            <a class="login-btn" href="{{ url_for('auth.login') }}">
+                <img src="https://img.icons8.com/ios-filled/28/ffffff/user-male-circle.png" alt="Login" style="vertical-align: middle;" />
+            </a>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="carousel-fade" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; z-index: 1;">
+            <div class="carousel-slide active" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%;">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Criação 1" style="width: 100%; height: 100%; object-fit: cover; margin: 0;" />
+            </div>
+            <div class="carousel-slide" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%;">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Criação 2" style="width: 100%; height: 100%; object-fit: cover; margin: 0;" />
+            </div>
+            <div class="carousel-slide" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%;">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80" alt="Criação 3" style="width: 100%; height: 100%; object-fit: cover; margin: 0;" />
+            </div>
+            <div class="carousel-controls" style="margin-top: 0; position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; gap: 18px;">
+                <button class="carousel-prev">&#10094;</button>
+                <button class="carousel-next">&#10095;</button>
+            </div>
+        </div>
+        <div class="banner-content" style="background: none; box-shadow: none;">
+            <h2 style="font-size:3.2rem; font-weight:900; color:#111; text-shadow: 2px 2px 8px #fff, 0 2px 16px #eee; letter-spacing:2px;">Criações únicas para você ✨</h2>
+            <h3 style="font-size:1.5rem; color:#111; font-weight:600; text-shadow: 1px 1px 6px #fff;">Serviços de conserto... etc</h3>
+            <a href="{{ url_for('servicos.projeto') }}" class="btn">Ver Serviços</a>
+        </div>
+    </section>
+
+    <section class="destaques">
+        <h2>Estampas em destaque</h2>
+        <div class="produtos-carousel">
+            <div class="produtos-viewport">
+                <div class="produtos-track">
+                    <a href="{{ url_for('servicos.estamparia') }}" class="card" style="text-decoration:none; color:inherit;">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Estampa artística 1" height="200">
+                        <h3>Estampa artística 1</h3>
+                    </a>
+                    <a href="{{ url_for('servicos.estamparia') }}" class="card" style="text-decoration:none; color:inherit;">
+                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Estampa criativa 2" height="200">
+                        <h3>Estampa criativa 2</h3>
+                    </a>
+                    <a href="{{ url_for('servicos.estamparia') }}" class="card" style="text-decoration:none; color:inherit;">
+                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Estampa moderna 3" height="200">
+                        <h3>Estampa moderna 3</h3>
+                    </a>
+                    <a href="{{ url_for('servicos.estamparia') }}" class="card" style="text-decoration:none; color:inherit;">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Estampa colorida 4" height="200">
+                        <h3>Estampa colorida 4</h3>
+                    </a>
+                    <a href="{{ url_for('servicos.estamparia') }}" class="card" style="text-decoration:none; color:inherit;">
+                        <img src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=400&q=80" alt="Estampa abstrata 5" height="200">
+                        <h3>Estampa abstrata 5</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:18px;">
+            <a href="{{ url_for('servicos.estamparia') }}" class="btn" style="font-size:1.2rem; padding:12px 32px;">Catálogo completo</a>
+        </div>
+        <script>
+        // Carrossel de produtos em loop automático corrigido
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.produtos-track');
+            const cards = document.querySelectorAll('.produtos-track .card');
+            let current = 0;
+            const visible = 3;
+            function updateCarousel() {
+                const cardWidth = cards[0].offsetWidth + 16;
+                track.style.transform = `translateX(-${current * cardWidth}px)`;
+            }
+            function nextSlide() {
+                current++;
+                if (current > cards.length - visible) {
+                    current = 0;
+                }
+                updateCarousel();
+            }
+            setInterval(nextSlide, 3000);
+            window.addEventListener('resize', updateCarousel);
+            updateCarousel();
+        });
+        </script>
+    </section>
+    <footer>
+        <p>© 2025 Ateliê Online - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
+
