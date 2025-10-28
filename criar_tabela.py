@@ -1,5 +1,6 @@
 from atelie_online import create_app
 from atelie_online.models import db
+from atelie_online.models.material_model import Material  # Importando o modelo Material
 
 app = create_app()
 

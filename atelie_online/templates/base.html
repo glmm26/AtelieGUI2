@@ -62,10 +62,17 @@
   </div>
 
   <!-- Mensagem de sucesso -->
-  {% with messages = get_flashed_messages() %}
+  {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-      {% for msg in messages %}
-        <div class="flash-message">{{ msg }}</div>
+      {% for category, msg in messages %}
+        {# determine redirect target based on message content #}
+        {% set redirect_url = '' %}
+        {% if 'Cliente cadastrado' in msg %}
+          {% set redirect_url = url_for('clientes.listar_clientes') %}
+        {% elif 'Serviço cadastrado' in msg %}
+          {% set redirect_url = url_for('servicos.listar_servicos') %}
+        {% endif %}
+        <div class="flash-message" data-category="{{ category }}" data-redirect="{{ redirect_url }}">{{ msg }}</div>
       {% endfor %}
     {% endif %}
   {% endwith %}
@@ -85,12 +92,17 @@
       }, 800);
     });
 
-    // Redirecionar após sucesso
+    // Redirecionar após sucesso — agora usa o atributo data-redirect para escolher o destino
     const flashMsg = document.querySelector(".flash-message");
     if (flashMsg) {
-      setTimeout(() => {
-        window.location.href = "{{ url_for('servicos.estamparia') }}";
-      }, 3000);
+      const target = flashMsg.dataset.redirect;
+      if (target && target !== '') {
+        const loader = document.getElementById("loading-screen");
+        loader.classList.remove("hidden"); // Mostra loading antes do redirect
+        setTimeout(() => {
+          window.location.href = target;
+        }, 2000); // Redireciona após 2s de loading extra
+      }
     }
   </script>
 </body>
