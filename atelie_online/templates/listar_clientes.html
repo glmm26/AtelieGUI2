@@ -17,8 +17,8 @@
           </form>
         </td>
       </tr>
-      <a href="{{ url_for('admin_dashboard') }}" class="btn_baixo">Voltar</a>
       {% endfor %}
     </tbody>
   </table>
+  <a href="{{ url_for('admin_dashboard') }}" class="btn_baixo" style="position:fixed;bottom:30px;left:30px;z-index:100;">Voltar</a>
 {% endblock %}

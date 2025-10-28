@@ -50,6 +50,30 @@ def excluir_servico(id):
 def projeto():
     return render_template('projeto.html')
 
+@servico_bp.route('/customizacao', methods=['GET', 'POST'])
+def customizacao():
+    if request.method == 'POST':
+        material = request.form.get('material')
+        if not material:
+            flash('Por favor, selecione um material', 'danger')
+            return redirect(url_for('servicos.customizacao'))
+        # Aqui você pode adicionar a lógica para salvar o material selecionado
+        flash(f'Material {material} selecionado com sucesso!', 'success')
+        return redirect(url_for('servicos.cadastrar_servico'))
+    return render_template('customizacao.html')
+
+@servico_bp.route('/conserto', methods=['GET', 'POST'])
+def conserto():
+    if request.method == 'POST':
+        material = request.form.get('material')
+        if not material:
+            flash('Por favor, selecione um material', 'danger')
+            return redirect(url_for('servicos.conserto'))
+        # Aqui você pode adicionar a lógica para salvar o material selecionado
+        flash(f'Material {material} selecionado com sucesso!', 'success')
+        return redirect(url_for('servicos.cadastrar_servico'))
+    return render_template('conserto.html')
+
 @servico_bp.route('/estamparia', methods=['GET', 'POST'])
 def estamparia():
     if request.method == 'POST':
@@ -76,13 +100,7 @@ def estamparia():
         flash("🎉 Estampa enviada com sucesso!")
     return redirect(url_for('servicos.estamparia'))
 
-@servico_bp.route('/conserto')
-def conserto():
-    return render_template('conserto.html')
 
-@servico_bp.route('/customizacao')
-def customizacao():
-    return render_template('customizacao.html')
 
 @servico_bp.route('/material')
 def material():

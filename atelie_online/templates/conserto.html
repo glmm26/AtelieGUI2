@@ -2,6 +2,7 @@
 {% block title %}Conserto{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/conserto.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/material-selector.css') }}">
 
 <body class="back_serv">
   <h1>consertos</h1>
@@ -18,9 +19,24 @@
     <button class="btn_log_criar" id="nextBtn">&gt;</button>
   </div>
 
-  <div class="button_center">
-    <a href="{{ url_for('servicos.material') }}" class="btn_log_criar">Material</a>
-    <a href="javascript:history.back()" class="btn_log_criar">Voltar</a>
+  <div class="top-right-container">
+    <form action="{{ url_for('servicos.conserto') }}" method="POST" class="material-form">
+      <div class="material-selector">
+        <label for="material-select">Material:</label>
+        <select name="material" id="material-select" class="material-select" required>
+          <option value="">Selecionar...</option>
+          <option value="algodao">Algodão</option>
+          <option value="poliester">Poliéster</option>
+          <option value="malha">Malha</option>
+          <option value="jeans">Jeans</option>
+          <option value="seda">Seda</option>
+          <option value="couro">Couro</option>
+          <option value="outros">Outros</option>
+        </select>
+        <button type="submit" class="material-btn">Confirmar</button>
+      </div>
+    </form>
+    <a href="javascript:history.back()" class="back-btn">Voltar</a>
   </div>
 
   <script>

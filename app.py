@@ -4,6 +4,7 @@ from atelie_online.models import db
 from atelie_online.controllers.auth_controller import auth_bp
 from atelie_online.controllers.cliente_controller import cliente_bp
 from atelie_online.controllers.servico_controller import servico_bp
+from atelie_online.controllers.material_controller import material_bp
 
 def create_app():
     app = Flask(__name__, template_folder='atelie_online/templates', static_folder='atelie_online/static')
@@ -16,6 +17,7 @@ def create_app():
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(cliente_bp, url_prefix='/clientes')
     app.register_blueprint(servico_bp, url_prefix='/servicos')
+    app.register_blueprint(material_bp, url_prefix='/material')
 
     @app.route('/admin_dashboard')
     def admin_dashboard():
