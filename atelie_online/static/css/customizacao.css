@@ -13,3 +13,19 @@ body {
     margin: 80px auto;
     max-width: 600px;
 }
+
+.carousel-container {
+    margin-left: 200px; /* Move carousel to the left */
+    margin-top: 100px; /* Move carousel further down */
+}
+
+.top-right-container {
+    margin-top: 130px; /* Move material selector further down */
+}
+
+.button_center {
+    display: flex;
+    justify-content: left;
+    margin-top: 16px;
+    margin-left: 315px; /* Alinha as setas abaixo do carrossel */
+}
