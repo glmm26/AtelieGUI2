@@ -10,13 +10,14 @@
 
         <div class="admin_layout">
             <nav class="sidebar">
-                <a href="{{ url_for('auth.login') }}" class="btn">Sair</a>
+                <a href="{{ url_for('home') }}" class="btn">Sair</a>
                 <a href="{{ url_for('clientes.cadastrar_cliente') }}" class="btn">Cadastrar Cliente</a>
                 <a href="{{ url_for('clientes.listar_clientes') }}" class="btn">Listar Clientes</a>
                 <a href="{{ url_for('servicos.cadastrar_servico') }}" class="btn">Cadastrar Serviço</a>
                 <a href="{{ url_for('servicos.listar_servicos') }}" class="btn">Listar Serviços</a>
                 <a href="{{ url_for('materiais.cadastrar_material') }}" class="btn">Cadastrar Material</a>
                 <a href="{{ url_for('materiais.listar_materiais') }}" class="btn">Listar Materiais</a>
+                <a href="{{ url_for('pedidos.listar_pedidos') }}" class="btn">Pedidos</a>
             </nav>
 
             <main class="main_panel">

@@ -7,18 +7,22 @@
 <body class="back_serv">
   <h1>Customização</h1>
 
-    <div class="carousel-container">
-    <div class="carousel-track">
-      <img src="{{ url_for('static', filename='img/cus1.jpg') }}" alt="Estampa 1">
-      <img src="{{ url_for('static', filename='img/cus2.jpg') }}" alt="Estampa 2">
-      <img src="{{ url_for('static', filename='img/cus3.jpg') }}" alt="Estampa 3">
-      <img src="{{ url_for('static', filename='img/cus4.jpg') }}" alt="Estampa 4">
+  <div class="exemplo-customizacao-container">
+    <div class="exemplo-card">
+      <img src="{{ url_for('static', filename='img/cus1.jpg') }}" alt="Exemplo Customização 1" class="exemplo-img">
     </div>
-  </div>
-
-    <div class="button_center">
-    <button class="btn_log_criar" id="prevBtn">&lt;</button>
-    <button class="btn_log_criar" id="nextBtn">&gt;</button>
+    
+    <div class="exemplo-card">
+      <img src="{{ url_for('static', filename='img/cus2.jpg') }}" alt="Exemplo Customização 2" class="exemplo-img">
+    </div>
+    
+    <div class="exemplo-card">
+      <img src="{{ url_for('static', filename='img/cus3.jpg') }}" alt="Exemplo Customização 3" class="exemplo-img">
+    </div>
+    
+    <div class="exemplo-card">
+      <img src="{{ url_for('static', filename='img/cus4.jpg') }}" alt="Exemplo Customização 4" class="exemplo-img">
+    </div>
   </div>
 
   <div class="top-right-container">
@@ -35,27 +39,15 @@
           <option value="vies">Viés</option>
           <option value="cursor">Cursor</option>
         </select>
+        
+        <label for="descricao" style="margin-top: 12px;">Descrição da Customização (opcional):</label>
+        <textarea name="descricao" id="descricao" class="material-select" placeholder="Descreva seus detalhes de customização..." style="resize: vertical; min-height: 80px;"></textarea>
+        
         <button type="submit" class="material-btn">Confirmar</button>
       </div>
     </form>
     <a href="javascript:history.back()" class="back-btn">Voltar</a>
   </div>
-
-  <script>
-    const track = document.querySelector('.carousel-track');
-    const images = Array.from(track.children);
-    let index = 0;
-
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      index = (index + 1) % images.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    });
-
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      index = (index - 1 + images.length) % images.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    });
-  </script>
 
 </body>
 {% endblock %}

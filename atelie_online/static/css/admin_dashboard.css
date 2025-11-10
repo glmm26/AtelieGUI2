@@ -78,3 +78,60 @@
 
 /* Pequenos ajustes para harmonizar com base.html */
 #content { padding: 12px; }
+
+/* Overrides to prevent global .btn rules from affecting admin action buttons */
+.main_panel .btn {
+    border-radius: 6px;
+    box-shadow: none; /* remove heavy shadow */
+    background: #ffffff; /* flat background */
+    color: var(--accent);
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 6px 8px;
+}
+
+.main_panel .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.main_panel .btn-danger {
+    background: #d9534f; /* bootstrap danger-like red */
+    color: #ffffff;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: none;
+    padding: 6px 10px;
+}
+
+.main_panel .btn-danger:hover {
+    background: #c9302c;
+}
+
+.main_panel table .btn { white-space: nowrap; }
+
+/* Reset global form/card styles for small inline action forms used in the admin table */
+.main_panel form {
+    /* make inline and remove the heavy card look that global `form` gives */
+    display: inline-block;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    max-width: none !important;
+}
+
+/* Small adjustments for selects and buttons inside table actions */
+.main_panel table select {
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: #fff;
+}
+
+.main_panel table .btn {
+    padding: 6px 8px;
+    margin-left: 4px;
+}
+
+/* Ensure delete/exclude button sits cleanly without extra wrapper spacing */
+.main_panel table td { vertical-align: middle; }

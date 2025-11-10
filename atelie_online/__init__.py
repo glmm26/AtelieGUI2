@@ -5,6 +5,7 @@ from atelie_online.models import db
 from atelie_online.controllers.auth_controller import auth_bp
 from atelie_online.controllers.cliente_controller import cliente_bp
 from atelie_online.controllers.servico_controller import servico_bp
+from atelie_online.controllers.pedidos_controller import pedidos_bp
 
 def create_app():
     app = Flask(
@@ -25,5 +26,6 @@ def create_app():
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(cliente_bp, url_prefix='/clientes')
     app.register_blueprint(servico_bp, url_prefix='/servicos')
+    app.register_blueprint(pedidos_bp, url_prefix='/pedidos')
 
     return app
