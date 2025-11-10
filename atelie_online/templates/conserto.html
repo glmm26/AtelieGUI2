@@ -25,13 +25,16 @@
         <label for="material-select">Material:</label>
         <select name="material" id="material-select" class="material-select" required>
           <option value="">Selecionar...</option>
-          <option value="algodao">Algodão</option>
-          <option value="poliester">Poliéster</option>
-          <option value="malha">Malha</option>
-          <option value="jeans">Jeans</option>
-          <option value="seda">Seda</option>
-          <option value="couro">Couro</option>
-          <option value="outros">Outros</option>
+          <optgroup label="Calça">
+          <option value="Ajustar cós">Ajustar Cós</option>
+          <option value="Soltar cós">Aumentar Cós</option>
+          <option value="Ajustar perna">Ajustar Perna</option>
+          <option value="Diminuir barra">Diminuir Barra</option>
+        </optgroup>
+          <optgroup label="Camisa">
+          <option value="comprimento_manga">Encurtar Comprimento da manga</option>
+          <option value="pence">Pence</option>
+          <option value="ajuste_lateral">Ajuste lateral</option>
         </select>
         <button type="submit" class="material-btn">Confirmar</button>
       </div>
