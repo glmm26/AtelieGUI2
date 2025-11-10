@@ -11,6 +11,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+# Cria diretório de uploads e configura permissões
+RUN mkdir -p /app/atelie_online/static/uploads && \
+    chmod 777 /app/atelie_online/static/uploads
+
 # expõe porta
 EXPOSE 5000
 

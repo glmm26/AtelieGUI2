@@ -1,5 +1,6 @@
 from functools import wraps
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
+from flask_login import current_user as flask_current_user
 from atelie_online.models.cliente_model import Cliente
 from atelie_online.models import db
 from atelie_online.models.usuario import Usuario
@@ -8,7 +9,15 @@ cliente_bp = Blueprint('clientes', __name__, template_folder='../templates')
 
 @cliente_bp.route('/')
 def index():
-    return render_template('index.html')
+    # prefer the session-based user if available (app uses session['usuario_id'])
+    user_obj = None
+    try:
+        if 'usuario_id' in session:
+            user_obj = Usuario.query.get(int(session['usuario_id']))
+    except Exception:
+        user_obj = None
+
+    return render_template('index.html', current_user=(user_obj or flask_current_user))
 
 @cliente_bp.route('/cadastrar', methods=['GET', 'POST'])
 def cadastrar_cliente():
